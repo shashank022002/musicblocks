@@ -30,17 +30,18 @@ also available.
       2. [Sharps and Flats](#SHARPS-AND-FLATS)
       3. [Adjusting Transposition](#ADJUST-TRANSPOSITION)
       4. [Summary of Pitch Movements](#PITCH-MOVEMENT)
-      5. [Fixed and Movable Pitch Systems](#FIXED-AND-MOVABLE-PITCH-SYSTEMS)
-      6. [Dotted Notes](#DOTTED)
-      7. [Speeding Up and Slowing Down Notes via Mathematical Operations](#MULTIPLY-AND-DIVIDE)
-      8. [Repeating Notes](#REPETITION)
-      9. [Swinging Notes and Tied Notes](#SWINGING)
-      10. [Set Volume, Crescendo, Staccato, and Slur Blocks](#MORE-TRANSFORMATIONS)
-      11. [Intervals](#INTERVALS)
-      12. [Inversion](#INVERSION)
-      13. [Backwards](#BACKWARDS)
-      14. [Setting Voice and Keys](#SETTING)
-      15. [Vibrato, Tremelo, et al.](#VIBRATO)
+      5. [Set Key](#SET-KEY)
+      6. [Fixed and Movable Pitch Systems](#FIXED-AND-MOVABLE-PITCH-SYSTEMS)
+      7. [Dotted Notes](#DOTTED)
+      8. [Speeding Up and Slowing Down Notes via Mathematical Operations](#MULTIPLY-AND-DIVIDE)
+      9. [Repeating Notes](#REPETITION)
+      10. [Swinging Notes and Tied Notes](#SWINGING)
+      11. [Set Volume, Crescendo, Staccato, and Slur Blocks](#MORE-TRANSFORMATIONS)
+      12. [Intervals](#INTERVALS)
+      13. [Inversion](#INVERSION)
+      14. [Backwards](#BACKWARDS)
+      15. [Setting Voice and Keys](#SETTING)
+      16. [Vibrato, Tremelo, et al.](#VIBRATO)
    3. [Voices](#VOICES)
    4. [Graphics](#GRAPHICS)
    5. [Beat](#BEAT)
@@ -455,31 +456,36 @@ used to bump the `Mi 4` note up by one octave and then to bump the
 | | | For example: Transposing C-D-E-F by 4 (fifth) will give us G-A-B-C
 | | | To transpose an octave: shift by the mode length (7 in major scales) up or down. |
 
-#### <a name="Set Key"></a>3.2.5 Set Key
+#### <a name="SET-KEY"></a>3.2.5 Set Key
+
+The *Set key* block is used to change both the mode and key of the
+current scale. (The current scale is used to define the mapping of
+Solfege to notes and also the number of half steps take by the the
+*Scalar step* block.) For example, by setting the key to C Major, the
+scale is defined by starting at C and applying the pattern of half
+steps defined by a Major mode. In this case, the pattern of steps
+skips past all of the sharps and flats. (On a piano, C Major is just
+the white keays).
+
+When using the *Set key* block, the mode argument is used to define
+the pattern of half steps and the key argument is used to define the
+starting position of the pattern. For example, when mode = "major" and
+key = "C", the pattern of half steps is 2 2 1 2 2 2 1 and the first
+note in the scale from which the pattern is applied is "C".
 
 | Set Key Example |
 | --- |
 | ![set key](./setkey1.svg "set key example") |
 
-
-The *Set key* block is used to set the key and mode, e.g, C Major. 
-It is used to change both the mode and key of the current scale. (The current scale is used to define the mapping of Solfege to notes and also the number of half steps take by the the *Scalar step* block.)
-When starting at C, the pattern of a Major mode steps past sharps and flats, consequently there are no sharps or flats in the example.
-
-The example above demonstrates traveling up and down the major
- scale by moving an octave up from the starting note,
- do, one note at a time and then back down the same way.
-
+Using the example above, one can modify the arguments to *Set key* in
+order to move up and down one octave in a scale. The example shows C
+Major scale, but it could be used for any combination of key and mode.
 
 | Standard Notation for Set Key Example |
 | --- |
 | ![set key notation](./setkey2.png "Standard Notation Set Key") |
 
-
-
 [RUN LIVE](https://musicblocks.sugarlabs.org/index.html?id=1662103714150464&run=True)
-
-When using the *Set key* block, the mode argument is used to define the pattern of half steps and the key argument is used to define the starting position of the pattern. For example, when mode = "major" and key = "C", the pattern of half steps is 2 2 1 2 2 2 1 and the first note in the scale from which the pattern is applied is "C".
 
 Examples are shown in the following table.
 
@@ -505,7 +511,9 @@ Examples are shown in the following table.
 
 **Set Key & Scalar Step**
 
-The *Set key* block is used to select a subset of notes in the given temperament. (By default, Music Blocks uses equal temperament 12. The key and mode determine which of these notes will be used.)
+The *Set key* block is used to select a subset of notes in the given
+temperament. (By default, Music Blocks uses equal temperament 12. The
+key and mode determine which of these notes will be used.)
 
 **Set Key & Movable Do**
 
@@ -514,8 +522,7 @@ between solfege, e.g., `Do`, `Re`, `Mi`, to note names, e.g., `F#`,
 `G#`, `A#`, when in F# Major.  It only impacts the mapping of solfege 
 when the *movable Do* block is set to True.
 
-You can find set key block in the left palette ->  Intervals and then can be used as shown in the above diagram.
-In this block to the right, we have two joining points for key {A, B, C, D, E, F, G} and mode {major, minor, lydian, etc.} which can be used to set the key and mode as per requirement.
+You can find the *Set key* block on the *Intervals* palette.
 
 | Music Blocks for Set Key and Movable Do | 
 | --- |
