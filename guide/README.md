@@ -161,6 +161,15 @@ As a convenience, a pie menu is used for selecting common note values.
 Please refer to the above picture for a visual representation of note
 values.
 
+At times you may want to put notes inside of a note. For example, if
+you want to play a series of notes that play over the course of a
+single note.
+
+![Notes in note](./note-in-note.svg "Notes can be put inside of notes")
+
+In the example above, over the course of playing a half-note, two
+quarter notes are played.
+
 ### <a name="PITCH">2.2 Pitch Blocks</a>
 
 As we have seen, *Pitch* blocks are used inside the
